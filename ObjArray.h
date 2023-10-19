@@ -15,15 +15,18 @@ Obj create_obj(int x, int y, int z)
 	return temp;
 }
 
+void update_obj_values(Obj *a, int x, int y ,int z)
+{
+	a->x = x;
+	a->y = y;
+	a->z = z;
+
+	return;
+}
+
 void print_obj(Obj *a)
 {	
-
-
-	// printf("obj = %p \n", a);
-
-	printf("obj x = %2d", a->x);
-	printf(", y = %2d, z = %2d \n", a->y, a->z);
-
+	printf("obj (x : %2d, y : %2d, z : %2d)\n", a->x, a->y, a->z);
 	return;
 }
 
@@ -32,11 +35,8 @@ void print_obj(Obj *a)
 void init_obj_array(Obj *a, int size)
 {
 	for (int i = 0; i < size; i++) {
-		a[i] = create_obj(i + 2, i + 2, i + 2);
+		update_obj_values(&(a[i]), i + 2, i + 2, i + 2);
 	}
-
-	// printf("%ld\n", sizeof(a));
-
 
 	return;
 }
@@ -47,8 +47,6 @@ void print_obj_array(Obj *a, int size)
 		print_obj(&(a[i]));
 
 	}
-
-
 
 	return;
 }
